@@ -3,6 +3,9 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+// Cargar configuración del archivo .env
+dotenv.config();
+
 // Inicializar express
 const app = express();
 
@@ -58,24 +61,30 @@ instancia.save().then((respuesta) => {
     console.log(err);
 }); 
 
-
-// Ruta de prueba
+// Ruta inicial para verificar funcionamiento
 app.get('/', (req, res) => {
-    res.json({ mensaje: 'API de E-commerce funcionando correctamente' });
+    res.json({
+      message: 'API funcionando correctamente',
+      status: 'success'
+    });
   });
   
-  // Rutas
-  app.use('/api/usuarios', require('./routes/usuarioRoutes'));
-  app.use('/api/productos', require('./routes/productoRoutes'));
+  // Importar rutas
+  const userRoutes = require('./routes/users');
+  app.use('/api/users', userRoutes);
   
-  // Middleware para manejar rutas no encontradas
-  app.use((req, res) => {
-    res.status(404).json({ mensaje: 'Ruta no encontrada' });
+  // Middleware para manejo de errores
+  app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({
+      message: 'Error interno del servidor',
+      error: process.env.NODE_ENV === 'development' ? err.message : {}
+    });
   });
   
-  // Puerto y arranque del servidor
-  const PORT = process.env.PORT || 5000;
+  // Iniciar servidor
   app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
   });
-
+  
+  module.exports = app;
