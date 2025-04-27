@@ -48,8 +48,9 @@ const Usuario = mongoose.model("Usuario", usuarioSchema)
 const instancia = new Usuario;
 
 instancia.nombre = "Julio Narvaez";
-instancia.edad = 21;
 instancia.email = "juliocesar909@gmail.com";
+instancia.contraseña = "87654321";
+instancia.rol = "Administrador";
 
 instancia.save().then((respuesta) => {
     console.log(respuesta);
@@ -78,4 +79,3 @@ app.get('/', (req, res) => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
   });
 
-  //se realiozo todo
