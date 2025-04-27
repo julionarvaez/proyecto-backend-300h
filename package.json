@@ -1,0 +1,27 @@
+{
+  "name": "proyecto-backend-300h",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/julionarvaez/proyecto-backend-300h#readme",
+  "bugs": {
+    "url": "https://github.com/julionarvaez/proyecto-backend-300h/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julionarvaez/proyecto-backend-300h.git"
+  },
+  "license": "ISC",
+  "author": "Julio Narvaez",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "star": "'node app.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.0"
+  }
+}
