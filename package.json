@@ -1,7 +1,7 @@
 {
   "name": "proyecto-backend-300h",
   "version": "1.0.0",
-  "description": "",
+  "description": "Este repositorio contiene el backend para el proyecto del diplomado de desarrollo web, implementado con Node.js, Express y MongoDB.",
   "homepage": "https://github.com/julionarvaez/proyecto-backend-300h#readme",
   "bugs": {
     "url": "https://github.com/julionarvaez/proyecto-backend-300h/issues"
@@ -22,7 +22,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mongoose": "^8.14.0",
+    "mongoose": "^8.14.0"
+  },
+  "devDependencies": {
+    "@ljharb/tsconfig": "^0.3.2",
     "nodemon": "^3.1.10"
-  }
+  },
+  "keywords": []
 }
